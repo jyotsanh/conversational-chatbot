@@ -21,8 +21,8 @@ google_api_key = os.getenv("GOOGLE_API_KEY")
 if google_api_key:
     os.environ["GOOGLE_API_KEY"] = google_api_key
 groq_api_key = os.getenv('GROQ_API_KEY')
-
-
+if groq_api_key:
+    os.environ["GROQ_API_KEY"] = groq_api_key
 def extract_pdf_text(uploaded_file):
     """
     Extract text from an uploaded PDF file using PyMuPDF (fitz).
@@ -154,7 +154,6 @@ def create_vector_store(pdf_text):
 def create_qa_chain(retriever,groq_api_key):
     
     llm=ChatGroq(
-            groq_api_key=groq_api_key,
              model_name="Llama3-8b-8192")
 
     prompt = ChatPromptTemplate.from_template(
