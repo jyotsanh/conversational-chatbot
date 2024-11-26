@@ -16,8 +16,10 @@ from langchain.schema import Document
 
 
 # Load environment variables
-load_dotenv('.env')
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+load_dotenv()
+google_api_key = os.getenv("GOOGLE_API_KEY")
+if google_api_key:
+    os.environ["GOOGLE_API_KEY"] = google_api_key
 groq_api_key = os.getenv('GROQ_API_KEY')
 
 
