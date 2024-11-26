@@ -152,8 +152,14 @@ def create_vector_store(pdf_text):
         search_kwargs={'k': 3, 'lambda_mult': 0.25}
     )
 def create_qa_chain(retriever,groq_api_key):
+    if not groq_api_key:
+        groq_api_key = os.getenv('GROQ_API_KEY')
     
+    if not groq_api_key:
+        st.error("Groq API Key is missing. Please set the GROQ_API_KEY environment variable.")
+        return None
     llm=ChatGroq(
+            groq_api_key=groq_api_key,
              model_name="Llama3-8b-8192")
 
     prompt = ChatPromptTemplate.from_template(

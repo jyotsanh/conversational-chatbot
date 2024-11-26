@@ -7,3 +7,4 @@ langchain-community
 langchain-groq
 python-dotenv
 PyMuPDF
+chromadb
