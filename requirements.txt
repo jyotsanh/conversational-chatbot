@@ -8,6 +8,4 @@ langchain-groq
 python-dotenv
 PyMuPDF
 chromadb
-SQLAlchemy 
-psycopg2-binary
-pymysql
+pysqlite3-binary
